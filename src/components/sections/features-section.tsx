@@ -58,20 +58,20 @@ export function FeaturesSection() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20 space-y-6">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+        <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6 px-4 sm:px-0">
+          <div className="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
             <span className="text-xs font-medium text-white/80 uppercase tracking-widest">✨ Introducing</span>
           </div>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
             <span className="bg-gradient-to-r from-white via-purple-200 to-blue-300 bg-clip-text text-transparent">
               Ecstasy Infinity
             </span>
           </h2>
           <div className="max-w-2xl mx-auto space-y-2">
-            <p className="text-xl text-gray-300">
+            <p className="text-lg sm:text-xl text-gray-300">
               Nossa Revolução <span className="font-bold text-white">Boot-Time (UEFI)</span> version.
             </p>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-gray-400 leading-relaxed px-4 sm:px-0">
               Tecnologia de ponta que redefine os padrões de performance e segurança no ecossistema PvP
             </p>
           </div>

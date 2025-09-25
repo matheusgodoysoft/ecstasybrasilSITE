@@ -41,23 +41,23 @@ export function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto text-center space-y-6">
         {/* Badge */}
-        <div className="inline-flex items-center space-x-2 bg-secondary/50 backdrop-blur-sm rounded-full px-4 py-2 border">
-          <span className="text-2xl">🌌</span>
-          <span className="text-sm font-medium">Introdução ao Ecstasy Fortnite</span>
+        <div className="inline-flex items-center space-x-2 bg-secondary/50 backdrop-blur-sm rounded-full px-3 py-2 border text-xs sm:text-sm">
+          <span className="text-lg sm:text-2xl">🌌</span>
+          <span className="font-medium">Introdução ao Ecstasy Fortnite</span>
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
         </div>
 
         {/* Main Heading */}
         <div className="space-y-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
-            Desbloqueie o Próximo Nível
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
+            <span className="block sm:inline">Desbloqueie o</span>{" "}
+            <span className="block sm:inline">Próximo Nível</span>
             <br />
-            Performance com Ecstasy
+            <span className="block">Performance com Ecstasy</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                 Ecstasy define um novo padrão para a experiência PVP devido a sua tecnologia de ponta e experiência de usuário incomparável.
-                
           </p>
         </div>
 
@@ -68,12 +68,12 @@ export function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button 
-              size="lg" 
-              className="bg-white hover:bg-gray-100 text-black px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            <Button
+              size="lg"
+              className="bg-white hover:bg-gray-100 text-black px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
             >
               <span>Adquira Ecstasy</span>
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="ml-2 w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Button>
@@ -81,8 +81,8 @@ export function HeroSection() {
         </div>
 
         {/* Video Section */}
-        <div className="pt-8 -mx-4">
-          <div className="max-w-none px-8 relative">
+        <div className="pt-6 sm:pt-8 -mx-2 sm:-mx-4">
+          <div className="max-w-none px-2 sm:px-8 relative">
             {/* Video container with enhanced styling */}
             <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
               {/* Gradient overlay */}

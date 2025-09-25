@@ -6,7 +6,7 @@ export default function Dashboard() {
       <AnimatedBackground />
       <div className="relative z-10 py-20 px-4">
         <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+          <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               Dashboard
@@ -119,6 +119,7 @@ export default function Dashboard() {
                 <p className="text-xs text-muted-foreground">2 days ago</p>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

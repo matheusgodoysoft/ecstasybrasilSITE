@@ -113,9 +113,9 @@ export function SecurityProtection() {
     // Função para bloquear seleção de texto
     const blockTextSelection = () => {
       document.body.style.userSelect = 'none'
-      ;(document.body.style as any).webkitUserSelect = 'none'
-      ;(document.body.style as any).mozUserSelect = 'none'
-      ;(document.body.style as any).msUserSelect = 'none'
+      ;(document.body.style as unknown as Record<string, string>).webkitUserSelect = 'none'
+      ;(document.body.style as unknown as Record<string, string>).mozUserSelect = 'none'
+      ;(document.body.style as unknown as Record<string, string>).msUserSelect = 'none'
     }
 
     // Função para detectar debugging
@@ -132,10 +132,6 @@ export function SecurityProtection() {
 
     // Função para ofuscar console
     const obfuscateConsole = () => {
-      const originalLog = console.log
-      const originalError = console.error
-      const originalWarn = console.warn
-      
       console.log = () => {}
       console.error = () => {}
       console.warn = () => {}

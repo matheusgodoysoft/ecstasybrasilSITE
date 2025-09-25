@@ -2,7 +2,6 @@
 
 import { useRef, useEffect } from "react"
 import Image from "next/image"
-import Link from "next/link"
 
 export function InfinityDemoSection() {
   const videoRef = useRef<HTMLVideoElement>(null)

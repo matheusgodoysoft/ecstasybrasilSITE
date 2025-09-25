@@ -5,7 +5,6 @@ import { PricingSection } from "@/components/sections/pricing-section"
 import { FaqSection } from "@/components/sections/faq-section"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { AnimatedBackground } from "@/components/animated-background"
 
 export default function Home() {
   return (

@@ -2,7 +2,6 @@ import { cn } from "@/lib/utils"
 
 interface BorderBeamProps {
   className?: string
-  size?: number
   duration?: number
   delay?: number
   borderWidth?: number
@@ -10,7 +9,6 @@ interface BorderBeamProps {
 
 export function BorderBeam({
   className,
-  size = 200,
   duration = 15,
   delay = 0,
   borderWidth = 1.5,

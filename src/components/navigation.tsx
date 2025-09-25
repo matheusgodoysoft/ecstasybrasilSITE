@@ -5,7 +5,7 @@ import Image from "next/image"
 
 export function Navigation() {
   return (
-    <header className="w-full border-b flex h-[3.5rem] items-center px-4 md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full h-[3.5rem] flex items-center px-4 md:px-6 bg-black/80 backdrop-blur-md border-b border-white/10 shadow-lg">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center space-x-2">

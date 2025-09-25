@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "ecstasy",
-  description: "Unmatched PvP Dominance for FiveM",
+  description: "Domímio o PvP de uma forma incomparável",
   viewport: "width=device-width, initial-scale=1",
 };
 

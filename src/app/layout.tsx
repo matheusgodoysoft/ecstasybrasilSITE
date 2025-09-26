@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { SecurityProtection } from "@/components/security-protection";
+import { Chatbot } from "@/components/chatbot";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         <SecurityProtection />
         {children}
+        <Chatbot />
       </body>
     </html>
   );

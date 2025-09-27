@@ -11,8 +11,8 @@ export function CountdownSection() {
   })
 
   useEffect(() => {
-    // Data de lançamento: 6 de outubro de 2025 às 19:00 (horário de Brasília)
-    const launchDate = new Date('2025-10-06T19:00:00-03:00')
+    // Data de lançamento: 10 de outubro de 2025 às 19:00 (horário de Brasília)
+    const launchDate = new Date('2025-10-10T19:00:00-03:00')
     
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -63,7 +63,7 @@ export function CountdownSection() {
               <div className="flex items-center space-x-4">
                 <div className="text-center">
                   <div className="text-sm text-gray-400 uppercase tracking-wider">Data</div>
-                  <div className="text-2xl font-bold text-white">06 OUT</div>
+                  <div className="text-2xl font-bold text-white">10 OUT</div>
                 </div>
                 <div className="w-px h-12 bg-purple-500/50"></div>
                 <div className="text-center">

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@playwright/test": "^1.55.1",
+    "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",
     "next": "15.5.4",

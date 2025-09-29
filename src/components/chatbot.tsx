@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { X, MessageCircle, Send } from "lucide-react"
+import { X } from "lucide-react"
 import Image from "next/image"
 
 interface FAQ {
@@ -50,8 +50,7 @@ export function Chatbot() {
       timestamp: new Date()
     }
   ])
-  const [selectedFAQ, setSelectedFAQ] = useState<number | null>(null)
-
+  
   const handleFAQClick = (faq: FAQ) => {
     // Adiciona a pergunta do usuário
     const userMessage: Message = {
@@ -70,7 +69,6 @@ export function Chatbot() {
     }
 
     setMessages(prev => [...prev, userMessage, botMessage])
-    setSelectedFAQ(null)
   }
 
   const resetChat = () => {
@@ -82,7 +80,6 @@ export function Chatbot() {
         timestamp: new Date()
       }
     ])
-    setSelectedFAQ(null)
   }
 
   return (

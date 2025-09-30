@@ -59,7 +59,7 @@ export default function TermsOfService() {
 
         <div className="text-center mt-16">
           <a
-            href="https://discord.gg/dnu3c4q7"
+            href="https://discord.gg/ASPfsdkHGW"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105"

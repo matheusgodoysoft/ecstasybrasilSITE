@@ -80,7 +80,7 @@ export function PricingSection() {
   }, [])
 
   return (
-    <section className="py-12 px-4">
+    <section id="pricing" className="py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">

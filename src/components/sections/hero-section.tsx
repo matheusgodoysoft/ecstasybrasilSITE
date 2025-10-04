@@ -64,9 +64,7 @@ export function HeroSection() {
         {/* CTA Button */}
         <div className="pt-4">
           <Link 
-            href="https://discord.gg/ASPfsdkHGW"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#pricing"
           >
             <Button
               size="lg"

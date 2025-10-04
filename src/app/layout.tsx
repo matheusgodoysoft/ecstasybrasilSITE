@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "ecstasy",
-  description: "Domímio o PvP de uma forma incomparável",
+  description: "Domíne o PvP de uma forma incomparável",
   viewport: "width=device-width, initial-scale=1",
 };
 

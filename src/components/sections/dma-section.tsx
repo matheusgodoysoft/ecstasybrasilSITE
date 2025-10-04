@@ -17,6 +17,7 @@ const dmaProducts = [
       "Hardware DMA completo",
       "FUSER incluído",
       "FIRMWARE BASIC",
+      "🎁 1 mês de key",
       "Suporte técnico 12h",
       "Instalação guiada",
       "Manual em português"

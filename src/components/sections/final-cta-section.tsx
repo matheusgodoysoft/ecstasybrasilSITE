@@ -48,20 +48,20 @@ export function FinalCtaSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-          <Link href="https://ecstasy.zip/authenticate/login">
+          <Link href="https://ecstasy.zip/authenticate/login" className="w-full sm:w-auto">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 text-lg"
+              className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 text-lg min-h-[3rem] touch-manipulation"
             >
               🎮 Acessar Dashboard
             </Button>
           </Link>
           
-          <Link href="https://discord.gg/ASPfsdkHGW" target="_blank">
+          <Link href="https://discord.gg/ASPfsdkHGW" target="_blank" className="w-full sm:w-auto">
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 text-lg"
+              className="w-full sm:w-auto border-2 border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 text-lg min-h-[3rem] touch-manipulation"
             >
               💬 Comunidade Discord
             </Button>

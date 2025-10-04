@@ -3,6 +3,7 @@ import { HowItWorksSection } from "@/components/sections/how-it-works-section"
 import { FeaturesSection } from "@/components/sections/features-section"
 import { CountdownSection } from "@/components/sections/countdown-section"
 import { PricingSection } from "@/components/sections/pricing-section"
+import { DmaSection } from "@/components/sections/dma-section"
 import { FaqSection } from "@/components/sections/faq-section"
 import { FinalCtaSection } from "@/components/sections/final-cta-section"
 import { Navigation } from "@/components/navigation"
@@ -19,6 +20,7 @@ export default function Home() {
           <FeaturesSection />
           <CountdownSection />
           <PricingSection />
+          <DmaSection />
           <FaqSection />
           <FinalCtaSection />
         </main>

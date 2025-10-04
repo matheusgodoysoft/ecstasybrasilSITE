@@ -94,10 +94,10 @@ export function HowItWorksSection() {
             <p className="text-muted-foreground mb-6">
               Junte-se a milhares de jogadores que já transformaram sua experiência PvP.
             </p>
-            <Link href="https://ecstasy.zip/authenticate/login">
+            <Link href="https://ecstasy.zip/authenticate/login" className="inline-block w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 min-h-[3rem] touch-manipulation"
               >
                 Acessar Dashboard
               </Button>

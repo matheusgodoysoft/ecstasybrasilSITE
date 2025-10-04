@@ -72,6 +72,11 @@ export function FeaturesSection() {
             <p className="text-sm text-gray-400 leading-relaxed px-4 sm:px-0">
               Tecnologia de ponta que redefine os padrões de performance e segurança no ecossistema PvP
             </p>
+            <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/20 rounded-xl p-4 mt-4">
+              <p className="text-sm text-green-300 font-medium leading-relaxed">
+                🛡️ <span className="font-bold">Completamente Indetectável:</span> Impossível de ser detectado por scans automatizados e telagem manual. Nossa tecnologia UEFI opera em nível de hardware, garantindo invisibilidade total.
+              </p>
+            </div>
           </div>
         </div>
 

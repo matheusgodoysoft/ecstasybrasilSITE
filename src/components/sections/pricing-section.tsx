@@ -13,12 +13,12 @@ const pricingData = {
   },
   "1month": {
     standard: { price: "R$99.99", period: "mensal" },
-    infinity: { price: "R$349.99", period: "mensal" },
+    infinity: { price: "R$499.99", period: "mensal" },
     fortnite: { price: "R$599.99", period: "mensal" }
   },
   "3months": {
     standard: { price: "R$269.99", period: "trimestral" },
-    infinity: { price: "R$999.99", period: "trimestral" },
+    infinity: { price: "R$1450.99", period: "trimestral" },
     fortnite: { price: "R$1599.99", period: "trimestral" }
   }
 }
@@ -170,14 +170,18 @@ export function PricingSection() {
                             <div className={`w-2 h-2 rounded-full ${
                               plan.id === 'fortnite' 
                                 ? 'bg-red-400 animate-pulse' 
+                                : plan.id === 'infinity'
+                                ? 'bg-orange-400 animate-pulse'
                                 : 'bg-green-400 animate-pulse'
                             }`} />
                             <span className={`text-xs font-medium ${
                               plan.id === 'fortnite' 
                                 ? 'text-red-400' 
+                                : plan.id === 'infinity'
+                                ? 'text-orange-400'
                                 : 'text-green-400'
                             }`}>
-                              {plan.id === 'fortnite' ? 'Esgotado' : 'Disponível'}
+                              {plan.id === 'fortnite' ? 'Esgotado' : plan.id === 'infinity' ? 'Somente 5 keys disponíveis' : 'Disponível'}
                             </span>
                           </div>
                         </div>

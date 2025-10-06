@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { CheckoutModal } from "@/components/ui/checkout-modal"
 
 const pricingData = {
   "1week": {
@@ -74,10 +75,42 @@ const plans = [
 
 export function PricingSection() {
   const [selectedPeriod, setSelectedPeriod] = useState("1month")
+  const [checkoutModal, setCheckoutModal] = useState<{
+    isOpen: boolean
+    plan: {
+      id: string
+      name: string
+      price: string
+      period: string
+    } | null
+  }>({
+    isOpen: false,
+    plan: null
+  })
 
   useEffect(() => {
     setSelectedPeriod("1month")
   }, [])
+
+  const openCheckout = (planId: string, planName: string) => {
+    const planData = pricingData[selectedPeriod as keyof typeof pricingData][planId as keyof typeof pricingData["1month"]]
+    setCheckoutModal({
+      isOpen: true,
+      plan: {
+        id: planId,
+        name: planName,
+        price: planData.price,
+        period: planData.period
+      }
+    })
+  }
+
+  const closeCheckout = () => {
+    setCheckoutModal({
+      isOpen: false,
+      plan: null
+    })
+  }
 
   return (
     <section id="pricing" className="py-12 px-4">
@@ -188,21 +221,20 @@ export function PricingSection() {
                       </div>
 
                       {/* Subscribe Button */}
-                      <a href="https://discord.gg/ASPfsdkHGW" target="_blank" rel="noopener noreferrer" className="block">
-                        <Button 
-                          className={`w-full text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg ${
-                            plan.id === 'fortnite'
-                              ? 'bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 shadow-gray-500/25 cursor-not-allowed opacity-60'
-                              : plan.highlight
-                              ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-purple-500/25'
-                              : 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 shadow-gray-500/25'
-                          }`}
-                          size="lg"
-                          disabled={plan.id === 'fortnite'}
-                        >
-                          {plan.id === 'fortnite' ? '❌ Esgotado' : '💬 Subscribe'}
-                        </Button>
-                      </a>
+                      <Button 
+                        onClick={() => plan.id !== 'fortnite' ? openCheckout(plan.id, plan.name) : undefined}
+                        className={`w-full text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg ${
+                          plan.id === 'fortnite'
+                            ? 'bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 shadow-gray-500/25 cursor-not-allowed opacity-60'
+                            : plan.highlight
+                            ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-purple-500/25'
+                            : 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 shadow-gray-500/25'
+                        }`}
+                        size="lg"
+                        disabled={plan.id === 'fortnite'}
+                      >
+                        {plan.id === 'fortnite' ? '❌ Esgotado' : '🛒 Comprar Agora'}
+                      </Button>
 
                       {/* Features List */}
                       <div className="pt-4 border-t border-gray-800">
@@ -233,6 +265,13 @@ export function PricingSection() {
           ))}
         </Tabs>
       </div>
+
+      {/* Checkout Modal */}
+      <CheckoutModal
+        isOpen={checkoutModal.isOpen}
+        onClose={closeCheckout}
+        plan={checkoutModal.plan}
+      />
     </section>
   )
 }

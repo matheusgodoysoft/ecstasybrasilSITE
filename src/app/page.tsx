@@ -9,6 +9,7 @@ import { FinalCtaSection } from "@/components/sections/final-cta-section"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
+
 export default function Home() {
   return (
     <div className="min-h-screen relative bg-black">

@@ -18,8 +18,8 @@ const pricingData = {
   },
   "3months": {
     standard: { price: "R$269.99", period: "trimestral" },
-    infinity: { price: "R$1450.99", period: "trimestral" },
-    fortnite: { price: "R$1599.99", period: "trimestral" }
+    infinity: { price: "R$1.450,99", period: "trimestral" },
+    fortnite: { price: "R$1.599,99", period: "trimestral" }
   }
 }
 

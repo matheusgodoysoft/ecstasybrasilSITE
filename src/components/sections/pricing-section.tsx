@@ -214,7 +214,7 @@ export function PricingSection() {
                                 ? 'text-orange-400'
                                 : 'text-green-400'
                             }`}>
-                              {plan.id === 'fortnite' ? 'Esgotado' : plan.id === 'infinity' ? 'Somente 5 keys disponíveis' : 'Disponível'}
+                              {plan.id === 'fortnite' ? 'Esgotado' : plan.id === 'infinity' ? 'Somente 2 keys disponíveis' : 'Disponível'}
                             </span>
                           </div>
                         </div>

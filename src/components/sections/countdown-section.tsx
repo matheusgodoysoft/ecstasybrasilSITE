@@ -10,7 +10,6 @@ export function CountdownSection() {
     seconds: 0
   })
   const [isCountdownFinished, setIsCountdownFinished] = useState(false)
-  const [showCelebration, setShowCelebration] = useState(false)
 
   useEffect(() => {
     // Data de lançamento: 06 de outubro de 2025 às 20:00 (horário de Brasília)
@@ -31,9 +30,6 @@ export function CountdownSection() {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
         if (!isCountdownFinished) {
           setIsCountdownFinished(true)
-          setShowCelebration(true)
-          // Remove celebration after 10 seconds
-          setTimeout(() => setShowCelebration(false), 10000)
         }
       }
     }, 1000)
@@ -43,146 +39,6 @@ export function CountdownSection() {
 
   return (
     <section className="py-12 px-4 relative overflow-hidden">
-      {/* Celebration Effects */}
-      {showCelebration && (
-        <>
-          {/* Professional Confetti Animation */}
-          <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
-            {[...Array(30)].map((_, i) => {
-              const colors = ['#8B5CF6', '#06B6D4', '#10B981', '#F59E0B', '#EF4444', '#EC4899']
-              const randomColor = colors[Math.floor(Math.random() * colors.length)]
-              const size = Math.random() * 8 + 4 // 4-12px
-              const delay = Math.random() * 3
-              const duration = 4 + Math.random() * 2 // 4-6s
-              const startX = Math.random() * 100
-              const endX = startX + (Math.random() - 0.5) * 40 // Drift effect
-              
-              return (
-                <div
-                  key={i}
-                  className="absolute animate-pulse"
-                  style={{
-                    left: `${startX}%`,
-                    top: '-10px',
-                    width: `${size}px`,
-                    height: `${size}px`,
-                    backgroundColor: randomColor,
-                    borderRadius: Math.random() > 0.5 ? '50%' : '2px',
-                    animation: `confettiFall ${duration}s ease-in ${delay}s infinite`,
-                    transform: `rotate(${Math.random() * 360}deg)`,
-                    opacity: 0.9,
-                    boxShadow: `0 0 ${size/2}px ${randomColor}40`
-                  }}
-                />
-              )
-            })}
-          </div>
-
-          {/* Enhanced Fireworks Effect */}
-          <div className="fixed inset-0 pointer-events-none z-40">
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute"
-                style={{
-                  left: `${25 + Math.random() * 50}%`,
-                  top: `${25 + Math.random() * 50}%`,
-                }}
-              >
-                <div className="relative">
-                  {/* Outer ring */}
-                  {[...Array(16)].map((_, j) => (
-                    <div
-                      key={`outer-${j}`}
-                      className="absolute w-0.5 h-12 bg-gradient-to-t from-purple-400 via-blue-400 to-transparent rounded-full"
-                      style={{
-                        transform: `rotate(${j * 22.5}deg)`,
-                        transformOrigin: 'bottom center',
-                        animation: `fireworkExpand 2.5s ease-out ${i * 0.8}s infinite`,
-                        opacity: 0.8,
-                        filter: 'blur(0.5px)'
-                      }}
-                    />
-                  ))}
-                  {/* Inner ring */}
-                  {[...Array(8)].map((_, j) => (
-                    <div
-                      key={`inner-${j}`}
-                      className="absolute w-1 h-8 bg-gradient-to-t from-green-400 via-yellow-400 to-transparent rounded-full"
-                      style={{
-                        transform: `rotate(${j * 45}deg)`,
-                        transformOrigin: 'bottom center',
-                        animation: `fireworkExpand 2s ease-out ${i * 0.8 + 0.3}s infinite`,
-                        opacity: 0.9
-                      }}
-                    />
-                  ))}
-                  {/* Center spark */}
-                  <div 
-                    className="absolute w-2 h-2 bg-white rounded-full -translate-x-1 -translate-y-1"
-                    style={{
-                      animation: `sparkle 2s ease-out ${i * 0.8}s infinite`,
-                      boxShadow: '0 0 10px #ffffff80'
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Professional Success Message Overlay */}
-          <div className="fixed inset-0 bg-gradient-to-br from-black/90 via-purple-900/30 to-black/90 backdrop-blur-md z-30 flex items-center justify-center">
-            <div className="text-center space-y-8 max-w-4xl mx-auto px-6">
-              {/* Main Icon */}
-              <div className="relative">
-                <div className="text-9xl animate-bounce" style={{ animationDuration: '2s' }}>🎉</div>
-                <div className="absolute inset-0 text-9xl animate-pulse opacity-50" style={{ animationDuration: '1.5s' }}>✨</div>
-              </div>
-              
-              {/* Main Title */}
-              <div className="space-y-4">
-                <h2 className="text-5xl md:text-7xl font-black text-white mb-4">
-                  <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-pulse">
-                    VENDAS LIBERADAS!
-                  </span>
-                </h2>
-                <div className="h-1 w-32 bg-gradient-to-r from-green-400 to-blue-400 mx-auto rounded-full animate-pulse"></div>
-              </div>
-              
-              {/* Subtitle */}
-              <p className="text-2xl md:text-3xl text-green-400 font-bold">
-                <span className="inline-block animate-bounce" style={{ animationDelay: '0.1s' }}>⚡</span>
-                <span className="mx-3">As 100 vagas estão disponíveis AGORA!</span>
-                <span className="inline-block animate-bounce" style={{ animationDelay: '0.2s' }}>⚡</span>
-              </p>
-              
-              {/* Call to Action */}
-              <div className="flex items-center justify-center space-x-6 text-xl text-white/90">
-                <span className="inline-block animate-pulse text-2xl" style={{ animationDelay: '0s' }}>🔥</span>
-                <span className="font-semibold">Corra antes que esgotem!</span>
-                <span className="inline-block animate-pulse text-2xl" style={{ animationDelay: '0.5s' }}>🔥</span>
-              </div>
-              
-              {/* Decorative Elements */}
-              <div className="flex justify-center space-x-8 mt-8">
-                {['🚀', '💎', '⭐', '🎯'].map((emoji, i) => (
-                  <span 
-                    key={i}
-                    className="text-3xl animate-bounce opacity-70"
-                    style={{ 
-                      animationDelay: `${i * 0.2}s`,
-                      animationDuration: '2s'
-                    }}
-                  >
-                    {emoji}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-
       {/* Gaming Background Effects */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>

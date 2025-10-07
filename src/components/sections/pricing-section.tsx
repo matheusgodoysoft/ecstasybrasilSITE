@@ -42,7 +42,7 @@ const plans = [
   },
   {
     id: "infinity",
-    name: "FiveM Infinity",
+    name: "UEFI FiveM Infinity",
     description: "Feito para burlar scans",
     icon: "🚀",
     badge: "Mais Vendido",
@@ -222,18 +222,28 @@ export function PricingSection() {
 
                       {/* Subscribe Button */}
                       <Button 
-                        onClick={() => plan.id !== 'fortnite' ? openCheckout(plan.id, plan.name) : undefined}
+                        onClick={() => {
+                          const isInfinityWeekly = plan.id === 'infinity' && selectedPeriod === '1week'
+                          if (plan.id !== 'fortnite' && !isInfinityWeekly) {
+                            openCheckout(plan.id, plan.name)
+                          }
+                        }}
                         className={`w-full text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg ${
-                          plan.id === 'fortnite'
+                          plan.id === 'fortnite' || (plan.id === 'infinity' && selectedPeriod === '1week')
                             ? 'bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 shadow-gray-500/25 cursor-not-allowed opacity-60'
                             : plan.highlight
                             ? 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-purple-500/25'
                             : 'bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 shadow-gray-500/25'
                         }`}
                         size="lg"
-                        disabled={plan.id === 'fortnite'}
+                        disabled={plan.id === 'fortnite' || (plan.id === 'infinity' && selectedPeriod === '1week')}
                       >
-                        {plan.id === 'fortnite' ? '❌ Esgotado' : '🛒 Comprar Agora'}
+                        {plan.id === 'fortnite' 
+                          ? '❌ Esgotado' 
+                          : (plan.id === 'infinity' && selectedPeriod === '1week')
+                          ? '🚫 Indisponível'
+                          : '🛒 Comprar Agora'
+                        }
                       </Button>
 
                       {/* Features List */}

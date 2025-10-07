@@ -39,7 +39,7 @@ export default function Dashboard() {
               <h3 className="text-lg font-semibold">Active Plan</h3>
             </div>
             <p className="text-sm text-muted-foreground mb-2">Current subscription</p>
-            <div className="text-2xl font-bold">FiveM Infinity</div>
+            <div className="text-2xl font-bold">UEFI FiveM Infinity</div>
             <p className="text-sm text-muted-foreground mt-1">Expires: 30 days</p>
           </div>
 

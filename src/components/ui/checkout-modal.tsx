@@ -24,6 +24,7 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
   })
   const [isProcessing, setIsProcessing] = useState(false)
   const [showCryptoWallets, setShowCryptoWallets] = useState(false)
+  const [showPixKeys, setShowPixKeys] = useState(false)
   const [copiedWallet, setCopiedWallet] = useState<string | null>(null)
 
   if (!isOpen || !plan) return null
@@ -72,10 +73,9 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
       // Se for criptomoeda, mostrar carteiras ao invés de redirecionar
       if (formData.paymentMethod === 'crypto') {
         setShowCryptoWallets(true)
-      } else {
-        // Redirecionar para livepix.gg/ecstasybrasil apenas para PIX
-        window.open("https://livepix.gg/ecstasybrasil", "_blank")
-        onClose()
+      } else if (formData.paymentMethod === 'pix') {
+        // Para todos os planos PIX, mostrar chaves PIX ao invés de redirecionar para LivePix
+        setShowPixKeys(true)
       }
       
     } catch (error) {
@@ -134,7 +134,7 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {!showCryptoWallets ? (
+          {!showCryptoWallets && !showPixKeys ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Nome */}
               <div className="space-y-2">
@@ -213,8 +213,8 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
                 </div>
               ) : (
                 <div className="flex items-center space-x-2">
-                  <CreditCard className="w-5 h-5" />
-                  <span>Finalizar Compra - {plan.price}</span>
+                  <ShoppingCart className="w-5 h-5" />
+                  <span>Finalizar Compra</span>
                 </div>
               )}
             </Button>
@@ -239,6 +239,84 @@ export function CheckoutModal({ isOpen, onClose, plan }: CheckoutModalProps) {
               </div>
             </div>
           </form>
+          ) : showPixKeys ? (
+            /* PIX Keys Section for All Plans */
+            <div className="space-y-6">
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-white mb-2">Chave PIX - {plan.name}</h3>
+                <p className="text-gray-300 text-sm">Use a chave PIX abaixo para realizar o pagamento</p>
+              </div>
+
+              {/* PIX Key */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-green-600/10 to-blue-600/10 border border-green-500/30">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">PIX</span>
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold">Chave PIX</h4>
+                      <p className="text-gray-400 text-xs">Pagamento instantâneo</p>
+                    </div>
+                  </div>
+                  <Button
+                    onClick={() => copyToClipboard("3b8f2496-92d5-4787-96f9-b83fc693fe5a", "PIX")}
+                    className="bg-green-500/20 hover:bg-green-500/30 text-green-300 border border-green-500/50"
+                    size="sm"
+                  >
+                    {copiedWallet === "PIX" ? (
+                      <CheckCircle className="w-4 h-4" />
+                    ) : (
+                      <Copy className="w-4 h-4" />
+                    )}
+                  </Button>
+                </div>
+                <div className="bg-black/30 p-3 rounded-lg">
+                  <p className="text-gray-300 text-xs font-mono break-all">
+                    3b8f2496-92d5-4787-96f9-b83fc693fe5a
+                  </p>
+                </div>
+              </div>
+
+              {/* Instructions */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-600/10 to-blue-600/10 border border-purple-500/30">
+                <h4 className="text-white font-semibold mb-2">Instruções de Pagamento</h4>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Envie o valor exato de <strong>{plan.price}</strong></li>
+                  <li>• Clique no botão de copiar para copiar a chave PIX</li>
+                  <li>• Após o pagamento, aguarde a confirmação</li>
+                  <li>• O acesso será liberado em até 24 horas</li>
+                </ul>
+              </div>
+
+              {/* Discord Ticket Warning */}
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-red-600/10 to-orange-600/10 border border-red-500/30">
+                <h4 className="text-red-300 font-semibold mb-2 flex items-center space-x-2">
+                  <span>⚠️</span>
+                  <span>IMPORTANTE - Após o Pagamento</span>
+                </h4>
+                <div className="text-gray-300 text-sm space-y-2">
+                  <p className="font-medium">Depois de realizar o pagamento, você DEVE:</p>
+                  <ul className="space-y-1 ml-4">
+                    <li>• <strong>Abrir um ticket no Discord</strong></li>
+                    <li>• <strong>Enviar o comprovante de pagamento</strong></li>
+                    <li>• <strong>Informar o nome:</strong> {formData.name}</li>
+                    <li>• <strong>Informar o email:</strong> {formData.email}</li>
+                  </ul>
+                  <p className="text-red-300 font-medium mt-2">
+                    ⚠️ Sem o ticket com comprovante, seu acesso não será liberado!
+                  </p>
+                </div>
+              </div>
+
+              {/* Back Button */}
+              <Button
+                onClick={() => setShowPixKeys(false)}
+                className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 rounded-xl transition-all duration-300"
+              >
+                Voltar ao Formulário
+              </Button>
+            </div>
           ) : (
             /* Crypto Wallets Section */
             <div className="space-y-6">
